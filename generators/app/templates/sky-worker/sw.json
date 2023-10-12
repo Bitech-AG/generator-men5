@@ -1,0 +1,17 @@
+{
+  "lang": "<%= language %>",
+  "name": "<%= title %>",
+  "short_name": "<%= title %>",
+  "description": "<%= description %>",
+  "start_url": "/",
+  "background_color": "#2f3d58",
+  "theme_color": "#2f3d58",
+  "orientation": "any",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/sky-worker/icon.png",
+      "sizes": "189x189"
+    }
+  ]
+}

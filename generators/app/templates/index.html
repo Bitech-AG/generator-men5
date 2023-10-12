@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="<%= language %>">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="manifest" href="/sky-worker/sw.json">
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js', { scope: '/' });
+    }
+  </script>
+  <script id="sap-ui-bootstrap" src="./resources/sap-ui-core.js" data-sap-ui-theme="sap_belize"
+    data-sap-ui-resourceroots='{
+			"<%= id %>": "./"
+		}' data-sap-ui-compatVersion="edge" data-sap-ui-async="true"
+    data-sap-ui-oninit="module:sap/ui/core/ComponentSupport">
+    </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="sapUiBody">
+  <div data-sap-ui-component data-name="<%= id %>" data-id="container"
+    data-settings='{"id" : "<%= id %>"}' data-handle-validation="true"></div>
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "<%= id %>",
+  "version": "<%= version %>",
+  "description": "<%= description %>",
+  "private": true,
+  "main": "webapp/index.html",
+  "scripts": {
+    "start": "ui5 serve --open index.dev.html",
+    "start:server": "ui5 serve",
+    "build": "ui5 build self-contained --config=ui5.yaml --clean-dest --dest api/public --all",
+    "inst:all": "npm install && cd api && npm install"
+  }
+}
