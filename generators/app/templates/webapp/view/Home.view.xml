@@ -1,0 +1,10 @@
+<mvc:View id="_IDGenView1" controllerName="<%= id %>.controller.Home" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+  <Page id="_IDGenPage1" enableScrolling="true" title="<%= title %>" titleLevel="H2" showFooter="false">
+    <HBox id="_IDGenHBox1" justifyContent="Center" height="100%">
+      <VBox id="_IDGenVBox1" alignItems="Center" justifyContent="Center">
+        <Image id="_IDGenImage1" src="sky-worker/icon.png" decorative="false" class="sapUiLargeMargin"/>
+        <Title titleStyle="H4" id="_IDGenTitle1" text="Get started with editing webapp/view/Home.view.xml" class="sapUiLargeMargin"/>
+      </VBox>
+    </HBox>
+  </Page>
+</mvc:View>

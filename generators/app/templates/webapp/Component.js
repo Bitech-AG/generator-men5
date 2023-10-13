@@ -1,7 +1,6 @@
 sap.ui.define([
   "sap/ui/core/UIComponent",
-  "<%= id.replace('.', '/') %>/model/models",
-  "<%= id.replace('.', '/') %>/model/auth"
+  "<%= id.replaceAll('.', '/') %>/model/models"
 ],
   function (UIComponent, models, auth) {
     "use strict";
@@ -25,8 +24,6 @@ sap.ui.define([
 
         // set the device model
         this.setModel(models.createDeviceModel(), "device");
-
-        auth.initUserInComponent(this.getModel());
 
       }
     });

@@ -5,6 +5,7 @@
   "private": true,
   "main": "webapp/index.html",
   "scripts": {
+    "prestart": "echo 'be sure your database instance is running locally on port 27017'",
     "start": "ui5 serve --open index.dev.html",
     "start:server": "ui5 serve",
     "build": "ui5 build self-contained --config=ui5.yaml --clean-dest --dest api/public --all",

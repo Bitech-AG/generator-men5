@@ -28,28 +28,54 @@ module.exports = class extends Generator {
       {
         name: "description",
         message: "Please describe your project"
+      },
+      {
+        name: "language",
+        message: "Please enter your language code",
+        default: "de-DE",
+        store: true
       }
     ];
 
     return this.prompt(prompts).then(props => {
       // To access props later use this.props.someAnswer;
       this.props = props;
-      this.props.version = "0.1.0";
+      this.props.version = "0.0.0";
     });
   }
 
   writing() {
     const templates = [
-      "sky-worker/sw.json",
-      "index.dev.html",
-      "index.html",
-      "manifest.json",
+      "api/odata/v0.0.0/db.js",
+      "api/app.js",
+      "api/devNota.js",
+      "api/package.json",
+      "webapp/controller/App.controller.js",
+      "webapp/controller/Home.controller.js",
+      "webapp/i18n/i18n.properties",
+      "webapp/sky-worker/sw.json",
+      "webapp/view/App.view.xml",
+      "webapp/view/Home.view.xml",
+      "webapp/Component.js",
+      "webapp/index.dev.html",
+      "webapp/index.html",
+      "webapp/manifest.json",
+      "webapp/sw.js",
       "package.json",
       "README.md",
-      "sw.js",
       "ui5.yaml"
     ];
-    const files = ["sky-worker/icon.png", ".gitignore"];
+    const files = [
+      "api/odata/v0.0.0/entities/book/db.js",
+      "api/odata/v0.0.0/entities/book/index.js",
+      "api/odata/v0.0.0/index.js",
+      "api/odata/v0.0.0/service.js",
+      "api/.gitignore",
+      "webapp/css/style.css",
+      "webapp/model/models.js",
+      "webapp/sky-worker/icon.png",
+      ".gitignore"
+    ];
 
     templates.forEach(template =>
       this._copy(template, this.fs.copyTpl.bind(this.fs))
@@ -57,11 +83,20 @@ module.exports = class extends Generator {
     files.forEach(file => this._copy(file, this.fs.copy.bind(this.fs)));
   }
 
-  install() {
-    this.installDependencies();
+  end() {
+    this.log("After generation please run manually following commands:");
+    this.log(`cd ${this.projectFolder}`);
+    this.log("npm run inst:all");
   }
 
   _copy(path, method) {
-    method(this.templatePath(path), this.destinationPath(path), this.props);
+    this.projectFolder = this.props.id
+      .split(".")
+      .reduce((current, next) => next);
+    method(
+      this.templatePath(path),
+      this.destinationPath(`${this.projectFolder}/${path}`),
+      this.props
+    );
   }
 };

@@ -1,0 +1,17 @@
+{
+  "name": "<%= id %>",
+  "version": "<%= version %>",
+  "private": true,
+  "scripts": {
+    "start": "node app.js",
+    "debug": "node --inspect app.js"
+  },
+  "dependencies": {
+    "@r1mar/nota": "^0.1.0",
+    "cookie-parser": "~1.4.6",
+    "debug": "~4.3.4",
+    "express": "~4.18.2",
+    "mongoose": "^7.4.2"
+  },
+  "devDependencies": {}
+}

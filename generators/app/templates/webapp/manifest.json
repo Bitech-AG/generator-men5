@@ -11,7 +11,7 @@
     "description": "{{appDescription}}",
     "dataSources": {
       "mainService": {
-        "uri": "/api/launchpad/v<%= version %>/",
+        "uri": "/api/v<%= version %>/",
         "type": "OData",
         "settings": {
           "annotations": [],

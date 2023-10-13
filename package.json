@@ -1,7 +1,7 @@
 {
   "name": "generator-me-ui-5-n",
   "version": "0.0.0",
-  "description": "generates fullstack open ui5 projects with mongodb, expressjs and nodejs (me5n)",
+  "description": "Generates fullstack openUI5 projects with mongodb, expressjs and nodejs (me5n)",
   "homepage": "www.bitech.ag",
   "author": {
     "name": "Richard Martens",

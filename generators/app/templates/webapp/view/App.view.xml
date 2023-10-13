@@ -1,0 +1,6 @@
+<mvc:View id="_IDGenView1" controllerName="<%= id %>.controller.App" displayBlock="true"
+  xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc">
+  <Page id="appPage" showHeader="false">
+    <App id="app" />
+  </Page>
+</mvc:View>
