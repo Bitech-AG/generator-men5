@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const data = {
+const ModelSchema = new Schema({
   <%= columns.reduce((previous, next) => {
     const formatType = type => {
       const specialTypes = ['Mixed', 'ObjectId', 'Decimal128', 'UUID'];
@@ -11,13 +11,11 @@ const data = {
     };
     const newLine = `${next.name}: ${formatType(next.type)}`;
 
-    return previous ? `${previous},${String.fromCharCode(13)}${newLine}` : newLine;
+    return previous ? `${previous},${String.fromCharCode(13, 9)}${newLine}` : newLine;
   }, '') %>
-};
-
-const ModelSchema = new Schema(data,{}
+},
   {
-    timestamps: <%= timestamps === 'Y' ? true : false %>,
+    timestamps: <%= timestamps ? true : false %>,
     toObject: {
       virtuals: true,
     },

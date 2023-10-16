@@ -74,22 +74,23 @@ module.exports = class extends Generator {
       'db.js',
       'index.js'
     ];
-    const serviceFolder = `api/odata/v${this.version}`;
+    const serviceFolder = `api/odata/v${this.props.version}`;
 
     this.entityFolder = `${serviceFolder}/entities/${this.props.name}`;
 
-    if (!this.fs.exists(this.destinationPath('api'))) {
-      throw new Error('No api folder found. Are you in root of project?');
+    const app = this.destinationPath('api/app.js');
+    if (!this.fs.exists(app)) {
+      throw new Error(`No api folder found. Are you in root of project? Searched path ${app}`);
     }
 
     templates.forEach(template =>
       this._copy(template, this.fs.copyTpl.bind(this.fs))
     );
 
-    const indexPath = this.destinationPath(`${this.serviceFolder}/index.js`);
+    const indexPath = this.destinationPath(`${serviceFolder}/index.js`);
     const serviceIndex = this.fs.read(indexPath);
 
-    this.fs.write(indexPath, `require('./entities/${this.name}');${String.fromCharCode(13)}${serviceIndex}`);
+    this.fs.write(indexPath, `require('./entities/${this.props.name}');${String.fromCharCode(13)}${serviceIndex}`);
   }
 
   _copy(path, method) {
