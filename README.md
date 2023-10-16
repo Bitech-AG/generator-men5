@@ -1,19 +1,19 @@
-# generator-me-ui-5-n [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
+# generator-men-5 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage percentage][coveralls-image]][coveralls-url]
 > generates fullstack open ui5 projects with mongodb, expressjs and nodejs (me5n)
 
 ## Installation
 
-First, install [Yeoman](http://yeoman.io) and generator-me-ui-5-n using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+First, install [Yeoman](http://yeoman.io) and generator-men-5 using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
 
 ```bash
 npm install -g yo
-npm install -g generator-me-ui-5-n
+npm install -g generator-men-5
 ```
 
 Then generate your new project:
 
 ```bash
-yo me-ui-5-n
+yo men-5
 ```
 
 ## Getting To Know Yeoman
@@ -28,14 +28,14 @@ yo me-ui-5-n
  © [Richard Martens](www.bitech.ag)
 
 
-[npm-image]: https://badge.fury.io/js/generator-me-ui-5-n.svg
-[npm-url]: https://npmjs.org/package/generator-me-ui-5-n
-[travis-image]: https://travis-ci.com/bitech-ag/generator-me-ui-5-n.svg?branch=master
-[travis-url]: https://travis-ci.com/bitech-ag/generator-me-ui-5-n
-[daviddm-image]: https://david-dm.org/bitech-ag/generator-me-ui-5-n.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/bitech-ag/generator-me-ui-5-n
-[coveralls-image]: https://coveralls.io/repos/bitech-ag/generator-me-ui-5-n/badge.svg
-[coveralls-url]: https://coveralls.io/r/bitech-ag/generator-me-ui-5-n
+[npm-image]: https://badge.fury.io/js/generator-men-5.svg
+[npm-url]: https://npmjs.org/package/generator-men-5
+[travis-image]: https://travis-ci.com/bitech-ag/generator-men-5.svg?branch=master
+[travis-url]: https://travis-ci.com/bitech-ag/generator-men-5
+[daviddm-image]: https://david-dm.org/bitech-ag/generator-men-5.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/bitech-ag/generator-men-5
+[coveralls-image]: https://coveralls.io/repos/bitech-ag/generator-men-5/badge.svg
+[coveralls-url]: https://coveralls.io/r/bitech-ag/generator-men-5
 
 - Enable Travis integration at https://travis-ci.com/profile/bitech-ag
 - Enable Coveralls integration at https://coveralls.io/repos/new

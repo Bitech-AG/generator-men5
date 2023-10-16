@@ -2,14 +2,21 @@
 const Generator = require('yeoman-generator');
 const chalk = require('chalk');
 const yosay = require('yosay');
+const copyFiles = require('../../common/copyFiles');
 
 module.exports = class extends Generator {
+  constructor(args, opts) {
+    super(args, opts);
+
+    this.option("singelton");
+  }
+
   prompting() {
     // Have Yeoman greet the user.
     this.log(
       yosay(
         `Welcome to the super-duper ${chalk.red(
-          'generator-me-ui-5-n'
+          'generator-men-5'
         )} generator!`
       )
     );
@@ -37,7 +44,11 @@ module.exports = class extends Generator {
     }, {
       name: 'attributeType',
       message: 'Define your Schema - DataType?',
-      choices: 'String|Number|Date|Buffer|Boolean|Mixed|ObjectId|Decimal128|Map|Schema|UUID|BigInt',
+      choices: ['String', 'Number', 'Date', 'Buffer', 'Boolean', 'Mixed', 'ObjectId', 'Decimal128', 'Map', 'Schema', 'UUID', 'BigInt']
+        .map(name => ({
+          name: name,
+          value: name
+        })),
       default: 'String'
     }, {
       type: 'confirm',
@@ -45,7 +56,7 @@ module.exports = class extends Generator {
       message: 'Do you want to add more columns?',
       default: 'Y'
     }];
-  
+
     const loop = (relevantPrompts) => {
       return this.prompt(relevantPrompts).then(props => {
         const map = obj => ({
@@ -59,13 +70,14 @@ module.exports = class extends Generator {
         } else {
           this.props = props;
           this.props.columns = [map(props)];
+          this.props.singleton = this.options.singleton;
         }
-  
+
         return props.repeat ? loop(columnPrompts) : this.prompt([]);
-  
+
       })
     }
-  
+
     return loop([...prompts, ...columnPrompts]);
   }
 
@@ -75,17 +87,14 @@ module.exports = class extends Generator {
       'index.js'
     ];
     const serviceFolder = `api/odata/v${this.props.version}`;
-
-    this.entityFolder = `${serviceFolder}/entities/${this.props.name}`;
+    const entityFolder = `${serviceFolder}/entities/${this.props.name}`;
 
     const app = this.destinationPath('api/app.js');
     if (!this.fs.exists(app)) {
       throw new Error(`No api folder found. Are you in root of project? Searched path ${app}`);
     }
 
-    templates.forEach(template =>
-      this._copy(template, this.fs.copyTpl.bind(this.fs))
-    );
+    copyFiles(this, entityFolder, templates, []);
 
     const indexPath = this.destinationPath(`${serviceFolder}/index.js`);
     const serviceIndex = this.fs.read(indexPath);
@@ -93,11 +102,4 @@ module.exports = class extends Generator {
     this.fs.write(indexPath, `require('./entities/${this.props.name}');${String.fromCharCode(13)}${serviceIndex}`);
   }
 
-  _copy(path, method) {
-    method(
-      this.templatePath(path),
-      this.destinationPath(`${this.entityFolder}/${path}`),
-      this.props
-    );
-  }
 };

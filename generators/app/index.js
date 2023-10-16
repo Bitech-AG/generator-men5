@@ -2,14 +2,15 @@
 const Generator = require("yeoman-generator");
 const chalk = require("chalk");
 const yosay = require("yosay");
+const copyFiles = require('../../common/copyFiles');
 
 module.exports = class extends Generator {
-  prompting() {
+    prompting() {
     // Have Yeoman greet the user.
     this.log(
       yosay(
         `Welcome to the super-duper ${chalk.red(
-          "generator-me-ui-5-n"
+          "generator-men-5"
         )} generator!`
       )
     );
@@ -77,26 +78,21 @@ module.exports = class extends Generator {
       ".gitignore"
     ];
 
-    templates.forEach(template =>
-      this._copy(template, this.fs.copyTpl.bind(this.fs))
-    );
-    files.forEach(file => this._copy(file, this.fs.copy.bind(this.fs)));
+    copyFiles(this, undefined, templates, files);
+
+  }
+
+  install() {
+    this.installDependencies({
+      npm: true,
+      bower: false,
+      yarn: false
+    });
   }
 
   end() {
-    this.log("After generation please run manually following commands:");
-    this.log(`cd ${this.projectFolder}`);
+    this.log("After generation please run manually following command:");
     this.log("npm run inst:all");
   }
 
-  _copy(path, method) {
-    this.projectFolder = this.props.id
-      .split(".")
-      .reduce((current, next) => next);
-    method(
-      this.templatePath(path),
-      this.destinationPath(`${this.projectFolder}/${path}`),
-      this.props
-    );
-  }
 };

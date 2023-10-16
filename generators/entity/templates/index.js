@@ -1,6 +1,6 @@
 const Model = require('./db');
 const service = require('../../service');
-const entity = service.mongoEntity('<%= name %>', Model);
+const entity = service.mongo<%= singleton ? 'Singleton' : 'Entity' %>('<%= name %>', Model);
 
 entity.addBefore((req, res, next) => {
   try {

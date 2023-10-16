@@ -3,7 +3,7 @@ const path = require("path");
 const assert = require("yeoman-assert");
 const helpers = require("yeoman-test");
 
-describe("generator-me-ui-5-n:app", () => {
+describe("generator-men-5:app", () => {
   beforeAll(() => {
     return helpers
       .run(path.join(__dirname, "../generators/app"))
