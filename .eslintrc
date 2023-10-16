@@ -1,0 +1,18 @@
+{
+  "root": true,
+  "extends": [
+      "eslint:recommended"
+  ],        
+  "env": {
+    "jest": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "plugins": [
+  ],
+  "rules": {
+  },
+  "ignorePatterns": ["coverage", "**/templates"]
+}
