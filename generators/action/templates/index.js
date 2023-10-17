@@ -13,9 +13,7 @@ const action = service.action('<%= name %>', (req, res, next) => {
 }, { 
   $Parameter: [ <%- parameters.reduce((previous, next) => {
       const formatType = type => {
-        const specialTypes = ['Mixed', 'ObjectId', 'Decimal128', 'UUID'];
-        
-        return specialTypes.indexOf('node.odata') < 0 ? `Edm.${type}` : type; 
+        return type.indexOf('node.odata') < 0 ? `Edm.${type}` : type; 
       };
       const i2 = `${String.fromCharCode(13, 9, 9)}`;
       const i3 = `${i2}${String.fromCharCode(9)}`;
