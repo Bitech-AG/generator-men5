@@ -1,5 +1,5 @@
 {
-  "name": "generator-men-5",
+  "name": "generator-men5",
   "version": "0.0.0",
   "description": "Generates fullstack openUI5 projects with mongodb, expressjs and nodejs (me5n)",
   "homepage": "www.bitech.ag",
@@ -81,6 +81,6 @@
     "pretest": "eslint .",
     "test": "jest"
   },
-  "repository": "bitech-ag/generator-men-5",
+  "repository": "bitech-ag/generator-men5",
   "license": "MIT"
 }

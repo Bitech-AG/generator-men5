@@ -8,7 +8,8 @@ module.exports = class extends Generator {
   constructor(args, opts) {
     super(args, opts);
 
-    this.option("singelton");
+    this.option("suppress-check-root");
+    this.option("suppress-bind-action");
   }
 
   prompting() {
@@ -16,7 +17,7 @@ module.exports = class extends Generator {
     this.log(
       yosay(
         `Welcome to the super-duper ${chalk.red(
-          'men-5'
+          'men5'
         )} generator!`
       )
     );
@@ -29,7 +30,7 @@ module.exports = class extends Generator {
       {
         name: 'version',
         message: 'Which version of service should be extend?'
-      }, 
+      },
       {
         type: 'confirm',
         name: 'repeat',
@@ -46,13 +47,13 @@ module.exports = class extends Generator {
       type: 'input',
       message: 'Define your Schema - DataType?',
       choices: ['Binary', 'Boolean', 'Byte', 'Date',
-      'DateTimeOffset', 'Decimal', 'Double', 'Duration', 'Guid',
-      'Int16', 'Int32', 'Int64', 'SByte', 'Single',
-      'Stream', 'String', 'TimeOfDay', 'Geography', 'GeographyPoint',
-      'GeographyLineString', 'GeographyPolygon', 'GeographyMultiPoint', 'GeographyMultiLineString',
-      'GeographyMultiPolygon', 'GeographyCollection', 'Geometry', 'GeometryPoint', 'GeometryLineString',
-      'GeometryPolygon', 'GeometryMultiPoint', 'GeometryMultiLineString', 'GeometryMultiPolygon',
-      'GeometryCollection']
+        'DateTimeOffset', 'Decimal', 'Double', 'Duration', 'Guid',
+        'Int16', 'Int32', 'Int64', 'SByte', 'Single',
+        'Stream', 'String', 'TimeOfDay', 'Geography', 'GeographyPoint',
+        'GeographyLineString', 'GeographyPolygon', 'GeographyMultiPoint', 'GeographyMultiLineString',
+        'GeographyMultiPolygon', 'GeographyCollection', 'Geometry', 'GeometryPoint', 'GeometryLineString',
+        'GeometryPolygon', 'GeometryMultiPoint', 'GeometryMultiLineString', 'GeometryMultiPolygon',
+        'GeometryCollection']
         .map(name => ({
           name: name,
           value: name
@@ -96,16 +97,18 @@ module.exports = class extends Generator {
     const actionFolder = `${serviceFolder}/actions/${this.props.name}`;
 
     const app = this.destinationPath('api/app.js');
-    if (!this.fs.exists(app)) {
+    if (!this.options['suppress-check-root'] && !this.fs.exists(app)) {
       throw new Error(`No api folder found. Are you in root of project? Searched path ${app}`);
     }
 
     copyFiles(this, actionFolder, templates, []);
 
-    const indexPath = this.destinationPath(`${serviceFolder}/index.js`);
-    const serviceIndex = this.fs.read(indexPath);
+    if (!this.options['suppress-bind-action']) {
+      const indexPath = this.destinationPath(`${serviceFolder}/index.js`);
+      const serviceIndex = this.fs.read(indexPath);
 
-    this.fs.write(indexPath, `require('./actions/${this.props.name}');${String.fromCharCode(13)}${serviceIndex}`);
+      this.fs.write(indexPath, `require('./actions/${this.props.name}');${String.fromCharCode(13)}${serviceIndex}`);
+    }
   }
 
 };

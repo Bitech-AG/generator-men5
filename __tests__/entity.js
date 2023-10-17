@@ -3,14 +3,26 @@ const path = require('path');
 const assert = require('yeoman-assert');
 const helpers = require('yeoman-test');
 
-describe('generator-men-5:entity', () => {
+describe('generator-men5:entity', () => {
   beforeAll(() => {
     return helpers
       .run(path.join(__dirname, '../generators/entity'))
-      .withPrompts({ someAnswer: true });
+      .withPrompts({ 
+        name: 'user',
+        timestamps: false,
+        version: '0.0.0',
+        attributeName: 'name',
+        attributeType: 'String',
+        repeat: false
+      })
+      .withOptions({ 
+        ['suppress-check-root']: true,
+        ['suppress-bind-entity']: true
+      });
   });
 
   it('creates files', () => {
-    assert.file(['dummyfile.txt']);
+    assert.file(['api/odata/v0.0.0/entities/user/db.js']);
+    assert.file(['api/odata/v0.0.0/entities/user/index.js']);
   });
 });

@@ -3,7 +3,10 @@
     <HBox id="_IDGenHBox1" justifyContent="Center" height="100%">
       <VBox id="_IDGenVBox1" alignItems="Center" justifyContent="Center">
         <Image id="_IDGenImage1" src="sky-worker/icon.png" decorative="false" class="sapUiLargeMargin"/>
-        <Title titleStyle="H4" id="_IDGenTitle1" text="Get started with editing webapp/view/Home.view.xml" class="sapUiLargeMargin"/>
+        <VBox id="_IDGenVBox2" class="sapUiLargeMargin">
+          <Title titleStyle="H4" id="_IDGenTitle1" text="Get started with editing webapp/view/Home.view.xml" class="sapUiTinyMargin"/>
+          <Link id="_IDGenLink1" text="Get to know OpenUI5" href="https://openui5.hana.ondemand.com/" class="sapUiTinyMargin" />
+        </VBox>
       </VBox>
     </HBox>
   </Page>

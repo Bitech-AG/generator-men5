@@ -10,7 +10,7 @@ module.exports = class extends Generator {
     this.log(
       yosay(
         `Welcome to the super-duper ${chalk.red(
-          "men-5"
+          "men5"
         )} generator!`
       )
     );
@@ -33,7 +33,7 @@ module.exports = class extends Generator {
       {
         name: "language",
         message: "Please enter your language code",
-        default: "de-DE",
+        default: "en-EN",
         store: true
       }
     ];
