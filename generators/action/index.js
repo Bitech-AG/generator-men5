@@ -16,7 +16,7 @@ module.exports = class extends Generator {
     this.log(
       yosay(
         `Welcome to the super-duper ${chalk.red(
-          'generator-men-5'
+          'men-5'
         )} generator!`
       )
     );
@@ -43,6 +43,7 @@ module.exports = class extends Generator {
       message: 'Define your Schema - ParameterName?'
     }, {
       name: 'parameterType',
+      type: 'input',
       message: 'Define your Schema - DataType?',
       choices: ['Binary', 'Boolean', 'Byte', 'Date',
       'DateTimeOffset', 'Decimal', 'Double', 'Duration', 'Guid',
@@ -84,7 +85,7 @@ module.exports = class extends Generator {
       })
     }
 
-    return loop([...prompts, ...parameterPrompts]);
+    return loop([...prompts]);
   }
 
   writing() {

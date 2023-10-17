@@ -1,4 +1,3 @@
-const Model = require('./db');
 const service = require('../../service');
 const action = service.action('<%= name %>', (req, res, next) => {
   try {
@@ -12,8 +11,7 @@ const action = service.action('<%= name %>', (req, res, next) => {
   next(err);
 }
 }, { 
-  $Parameter: [
-    <%= parameters.reduce((previous, next) => {
+  $Parameter: [ <%- parameters.reduce((previous, next) => {
       const formatType = type => {
         const specialTypes = ['Mixed', 'ObjectId', 'Decimal128', 'UUID'];
         
@@ -21,8 +19,8 @@ const action = service.action('<%= name %>', (req, res, next) => {
       };
       const i2 = `${String.fromCharCode(13, 9, 9)}`;
       const i3 = `${i2}${String.fromCharCode(9)}`;
-      const parameterName = `${i3}$Name: ${next.name},`;
-      const parameterType = `${i3}$Type: ${formatType(next.type)}`;
+      const parameterName = `${i3}$Name: '${next.name}',`;
+      const parameterType = `${i3}$Type: '${formatType(next.type)}'`;
       const parameterObject = `${i2}{${parameterName}${parameterType}${i2}}`;
   
       return previous ? `${previous},${parameterObject}` : parameterObject;
