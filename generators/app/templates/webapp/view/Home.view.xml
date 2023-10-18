@@ -5,7 +5,8 @@
         <Image id="_IDGenImage1" src="sky-worker/icon.png" decorative="false" class="sapUiLargeMargin"/>
         <VBox id="_IDGenVBox2" class="sapUiLargeMargin">
           <Title titleStyle="H4" id="_IDGenTitle1" text="Get started with editing webapp/view/Home.view.xml" class="sapUiTinyMargin"/>
-          <Link id="_IDGenLink1" text="Get to know OpenUI5" href="https://openui5.hana.ondemand.com/" class="sapUiTinyMargin" />
+          <Link id="_IDGenLink1" text="Get to know develop OpenUI5 frontend" href="https://openui5.hana.ondemand.com/" class="sapUiTinyMargin" />
+          <Link id="_IDGenLink2" text="Get to know develop OData Service" href="https://github.com/Bitech-AG/node-odata" class="sapUiTinyMargin" />
         </VBox>
       </VBox>
     </HBox>
