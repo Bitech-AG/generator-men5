@@ -79,8 +79,8 @@ module.exports = class extends Generator {
     copyFiles(this, undefined, templates, files);
 
     const hiddenFiles = [
-      ["api/.gitignore"],
-      [".gitignore"]
+      ["api/gitignore", "api/.gitignore"],
+      ["gitignore", ".gitignore"]
     ];
   
     hiddenFiles.forEach(file => {
