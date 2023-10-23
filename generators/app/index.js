@@ -18,7 +18,7 @@ module.exports = class extends Generator {
     const prompts = [
       {
         name: "id",
-        message: "Wich id you want to use for the app?",
+        message: "Which id you want to use for the app?",
         default: "me.app"
       },
       {

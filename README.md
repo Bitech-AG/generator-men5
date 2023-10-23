@@ -54,6 +54,7 @@ yo men5:function
   * [OpenUi**5**](https://openui5.hana.ondemand.com/) Framework
 
 You can find further helpful information at:
+* [@bitech-ag/nota](https://www.npmjs.com/package/@bitech-ag/nota) Bitech AG OData V4 Server implementation for OpenUI5
 * [OData protocol](https://www.odata.org/) OASIS Definition of Open Data Protocol
 * [MongoDB Community Edition](https://www.mongodb.com/docs/manual/administration/install-community/) Installation Guide
 
