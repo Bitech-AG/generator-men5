@@ -1,6 +1,6 @@
 {
   "name": "generator-men5",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Generates fullstack openUI5 projects with mongodb, expressjs and nodejs (me5n)",
   "homepage": "www.bitech.ag",
   "author": {
