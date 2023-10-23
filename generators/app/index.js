@@ -71,15 +71,24 @@ module.exports = class extends Generator {
       "api/odata/v0.0.0/entities/book/index.js",
       "api/odata/v0.0.0/index.js",
       "api/odata/v0.0.0/service.js",
-      "api/.gitignore",
       "webapp/css/style.css",
       "webapp/model/models.js",
-      "webapp/sky-worker/icon.png",
-      ".gitignore"
+      "webapp/sky-worker/icon.png"
     ];
 
     copyFiles(this, undefined, templates, files);
 
+    const hiddenFiles = [
+      ["api/.gitignore"],
+      [".gitignore"]
+    ];
+  
+    hiddenFiles.forEach(file => {
+      this.fs.copy(
+        this.templatePath(file[0]),
+        this.destinationPath(file[1])
+      );
+    });
   }
 
   install() {
