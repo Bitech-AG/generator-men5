@@ -22,7 +22,7 @@ describe('generator-men5:entity', () => {
   });
 
   it('creates files', () => {
-    assert.file(['api/odata/v0.0.0/entities/user/db.js']);
-    assert.file(['api/odata/v0.0.0/entities/user/index.js']);
+    assert.file(['api/db/user.js']);
+    assert.file(['api/odata/v0.0.0/entities/user.js']);
   });
 });

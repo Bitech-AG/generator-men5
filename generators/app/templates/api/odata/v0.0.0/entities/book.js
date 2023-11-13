@@ -1,5 +1,5 @@
-const Model = require('./db');
-const service = require('../../service');
+const Model = require('../../../db/book');
+const service = require('../service');
 const entity = service.mongoEntity('book', Model);
 
 entity.addBefore((req, res, next) => {

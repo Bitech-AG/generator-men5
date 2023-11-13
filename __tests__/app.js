@@ -16,9 +16,9 @@ describe("generator-men5:app", () => {
   });
 
   it("creates files", () => {
-    assert.file(["api/odata/v0.0.0/entities/book/db.js"]);
-    assert.file(["api/odata/v0.0.0/entities/book/index.js"]);
-    assert.file(["api/odata/v0.0.0/db.js"]);
+    assert.file(["api/db/book.js"]);
+    assert.file(["api/odata/v0.0.0/entities/book.js"]);
+    assert.file(["api/db/index.js"]);
     assert.file(["api/odata/v0.0.0/index.js"]);
     assert.file(["api/odata/v0.0.0/service.js"]);
     assert.file(["api/.gitignore"]);

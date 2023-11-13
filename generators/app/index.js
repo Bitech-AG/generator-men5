@@ -47,9 +47,10 @@ module.exports = class extends Generator {
 
   writing() {
     const templates = [
-      "api/odata/v0.0.0/db.js",
+      "api/db/index.js",
       "api/app.js",
       "api/devNota.js",
+      ["api/gitignore", "api/.gitignore"],
       "api/package.json",
       "webapp/controller/App.controller.js",
       "webapp/controller/Home.controller.js",
@@ -62,13 +63,14 @@ module.exports = class extends Generator {
       "webapp/index.html",
       "webapp/manifest.json",
       "webapp/sw.js",
+      ["gitignore", ".gitignore"],
       "package.json",
       "README.md",
       "ui5.yaml"
     ];
     const files = [
-      "api/odata/v0.0.0/entities/book/db.js",
-      "api/odata/v0.0.0/entities/book/index.js",
+      "api/db/book.js",
+      "api/odata/v0.0.0/entities/book.js",
       "api/odata/v0.0.0/index.js",
       "api/odata/v0.0.0/service.js",
       "webapp/css/style.css",
@@ -78,17 +80,6 @@ module.exports = class extends Generator {
 
     copyFiles(this, undefined, templates, files);
 
-    const hiddenFiles = [
-      ["api/gitignore", "api/.gitignore"],
-      ["gitignore", ".gitignore"]
-    ];
-  
-    hiddenFiles.forEach(file => {
-      this.fs.copy(
-        this.templatePath(file[0]),
-        this.destinationPath(file[1])
-      );
-    });
   }
 
   install() {

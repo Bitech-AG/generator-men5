@@ -19,6 +19,8 @@ const express = require('express');
 module.exports = function ({ resources, middlewareUtil, options }) {
   const router = express.Router();
   const odata = require('./odata/v<%= version %>');
+
+  require('./db');
   
   router.use(odata.getRouter());
 

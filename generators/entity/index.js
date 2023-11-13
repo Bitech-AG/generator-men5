@@ -88,13 +88,12 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    const templates = [
-      'db.js',
-      'index.js'
-    ];
     const serviceFolder = `api/odata/v${this.props.version}`;
-    const entityFolder = `${serviceFolder}/entities/${this.props.name}`;
-
+    const entityFolder = `${serviceFolder}/entities`;
+    const templates = [
+      ['db.js', `api/db/${this.props.name}.js`],
+      ['index.js', `${entityFolder}/${this.props.name}.js`]
+    ];
     const app = this.destinationPath('api/app.js');
     if (!this.options['suppress-check-root'] && !this.fs.exists(app)) {
       throw new Error(`No api folder found. Are you in root of project? Searched path ${app}`);
@@ -103,11 +102,16 @@ module.exports = class extends Generator {
     copyFiles(this, entityFolder, templates, []);
 
     if (!this.options['suppress-bind-entity']) {
-      const indexPath = this.destinationPath(`${serviceFolder}/index.js`);
-      const serviceIndex = this.fs.read(indexPath);
-
-      this.fs.write(indexPath, `require('./entities/${this.props.name}');${String.fromCharCode(13)}${serviceIndex}`);
+      this._extend(`${serviceFolder}/index.js`, `require('./entities/${this.props.name}');`);
+      this._extend('api/db/index.js', `require('./${this.props.name}');`)
     }
+  }
+
+  _extend(file, content) {
+    const path = this.destinationPath(file);
+    const fileContent = this.fs.read(path);
+
+    this.fs.write(path, `${content}${String.fromCharCode(13)}${fileContent}`);
   }
 
 };

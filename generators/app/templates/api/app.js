@@ -8,9 +8,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-//refer all entities, actions and functions for injection in odata service
-require('./odata/v<%= version %>/entities/book');
+require('./db');
 
 const odata<%= version.replaceAll('.', '_') %> = require('./odata/v<%= version %>');
 

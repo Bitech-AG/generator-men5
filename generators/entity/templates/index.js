@@ -1,4 +1,4 @@
-const Model = require('./db');
+const Model = require('../../../db/<%= name %>');
 const service = require('../../service');
 const entity = service.mongo<%= singleton ? 'Singleton' : 'Entity' %>('<%= name %>', Model);
 
