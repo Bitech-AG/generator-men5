@@ -2,6 +2,10 @@ const Model = require('./db');
 const service = require('../../service');
 const entity = service.mongo<%= singleton ? 'Singleton' : 'Entity' %>('<%= name %>', Model);
 
+<%_ if (client) { _%>
+entity.clientField = '<%= client %>';
+<%_ } _%>
+
 entity.addBefore((req, res, next) => {
   try {
 

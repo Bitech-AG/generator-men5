@@ -35,6 +35,10 @@ module.exports = class extends Generator {
         default: 'Y'
       },
       {
+        name: 'client',
+        message: 'What property does the client contain? (Empty if the collection should be cross-client)'
+      },
+      {
         name: 'version',
         message: 'Which version of service should be extend?'
       }
