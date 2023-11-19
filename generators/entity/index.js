@@ -49,11 +49,13 @@ module.exports = class extends Generator {
       message: 'Define your Schema - ColumnName?'
     }, {
       name: 'attributeType',
+      type: 'list',
       message: 'Define your Schema - DataType?',
       choices: ['String', 'Number', 'Date', 'Buffer', 'Boolean', 'Mixed', 'ObjectId', 'Decimal128', 'Map', 'Schema', 'UUID', 'BigInt']
         .map(name => ({
           name: name,
-          value: name
+          value: name,
+          description: name
         })),
       default: 'String'
     }, {

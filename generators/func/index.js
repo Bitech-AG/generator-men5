@@ -32,7 +32,7 @@ module.exports = class extends Generator {
         message: 'Which version of service should be extend?'
       },
       {
-        type: 'input',
+        type: 'list',
         name: 'type',
         message: 'Please input type of function result',
         choices: ['Binary', 'Boolean', 'Byte', 'Date',

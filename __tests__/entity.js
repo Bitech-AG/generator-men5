@@ -11,6 +11,7 @@ describe('generator-men5:entity', () => {
         name: 'user',
         timestamps: false,
         version: '0.0.0',
+        client: '',
         attributeName: 'name',
         attributeType: 'String',
         repeat: false

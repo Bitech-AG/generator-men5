@@ -44,7 +44,7 @@ module.exports = class extends Generator {
       message: 'Define your Schema - ParameterName?'
     }, {
       name: 'parameterType',
-      type: 'input',
+      type: 'list',
       message: 'Define your Schema - DataType?',
       choices: ['Binary', 'Boolean', 'Byte', 'Date',
         'DateTimeOffset', 'Decimal', 'Double', 'Duration', 'Guid',

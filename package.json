@@ -78,6 +78,7 @@
     ]
   },
   "scripts": {
+    "prepublish": "npm test",
     "pretest": "eslint .",
     "test": "jest"
   },

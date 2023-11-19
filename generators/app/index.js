@@ -51,7 +51,7 @@ module.exports = class extends Generator {
       "api/app.js",
       "api/devNota.js",
       ["api/gitignore", "api/.gitignore"],
-      "api/package.json",
+      ["api/apiPackage.json", "api/package.json"],
       "webapp/controller/App.controller.js",
       "webapp/controller/Home.controller.js",
       "webapp/i18n/i18n.properties",
